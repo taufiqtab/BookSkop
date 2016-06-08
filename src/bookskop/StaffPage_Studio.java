@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class StaffPage_Studio extends javax.swing.JFrame {
     
-    private String idstudios, nomor_studio;
+    private String idstudios, nomor_studio, judul_film;
     private Connection con;
     private Statement stat;
     private ResultSet res;
@@ -45,7 +45,9 @@ public class StaffPage_Studio extends javax.swing.JFrame {
     private void dataTable(){
         DefaultTableModel tabel = new DefaultTableModel();
         
+        tabel.addColumn("id"); 
         tabel.addColumn("nomor_studio"); 
+        tabel.addColumn("judul");
         
         tabelStudio.setModel(tabel);
         
@@ -58,6 +60,8 @@ public class StaffPage_Studio extends javax.swing.JFrame {
             {
                 tabel.addRow(new Object[]{
                     res.getString(1),
+                    res.getString(2),
+                    res.getString(3),
                 });
             }
         }catch (SQLException e){
@@ -82,7 +86,9 @@ public class StaffPage_Studio extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        idstudio = new javax.swing.JLabel();
+        idStudio = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        input_judul_film = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelStudio = new javax.swing.JTable();
@@ -125,7 +131,11 @@ public class StaffPage_Studio extends javax.swing.JFrame {
             }
         });
 
-        idstudio.setText("0");
+        idStudio.setText("0");
+
+        jLabel3.setText("Judul Fim        :");
+
+        input_judul_film.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "film1", "film2", "film3", "film4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -137,15 +147,19 @@ public class StaffPage_Studio extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(58, 58, 58)
-                                .addComponent(input_nomor_studio, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(idstudio))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(107, 107, 107)
-                                .addComponent(jLabel1))))
+                                .addComponent(jLabel1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(57, 57, 57)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(input_nomor_studio, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                                    .addComponent(input_judul_film, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(idStudio))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(127, 127, 127)
                         .addComponent(jButton1)
@@ -166,8 +180,12 @@ public class StaffPage_Studio extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(input_nomor_studio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(idstudio))
-                .addGap(40, 40, 40)
+                    .addComponent(idStudio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(input_judul_film, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -188,6 +206,11 @@ public class StaffPage_Studio extends javax.swing.JFrame {
                 "Nomor Bioskop"
             }
         ));
+        tabelStudio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelStudioMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelStudio);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -232,11 +255,12 @@ public class StaffPage_Studio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        nomor_studio = input_nomor_studio.getText();
-        
+       nomor_studio = input_nomor_studio.getText();
+        judul_film = input_judul_film.getSelectedItem().toString();
+         
         try {
-            CRUD_Studio SC = new CRUD_Studio(nomor_studio);
-            if (SC.masukkanData()) {
+            CRUD_Studio CS = new CRUD_Studio(nomor_studio, judul_film);
+            if (CS.masukkanData()) {
                 JOptionPane.showMessageDialog(null, "Berhasil", "Status", JOptionPane.INFORMATION_MESSAGE, null);
                 System.out.println("Berhasil");
                 dataTable();
@@ -255,21 +279,28 @@ public class StaffPage_Studio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
         nomor_studio = input_nomor_studio.getText();
+        judul_film = input_judul_film.getSelectedItem().toString();
         
-        CRUD_Studio SC = new CRUD_Studio();
-        if(SC.ubahData(idstudio.getText(), nomor_studio)){
-            JOptionPane.showMessageDialog(null, "Berhasil Disimpan");
-            dataTable();
-        }else{
-            JOptionPane.showMessageDialog(null, "Terjadi Kesalahan");
+        try{
+            CRUD_Studio CS = new CRUD_Studio();
+            if(CS.ubahData(idStudio.getText(),nomor_studio, judul_film)){
+                JOptionPane.showMessageDialog(null, "Berhasil Disimpan");
+                dataTable();
+            }else{
+                JOptionPane.showMessageDialog(null, "Terjadi Kesalahan");
+            }
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
         try{
-            CRUD_Studio SC = new CRUD_Studio();
-            if(SC.hapusData(idstudio.getText())){
+            CRUD_Studio CS = new CRUD_Studio();
+            if(CS.hapusData(idStudio.getText())){
                 JOptionPane.showMessageDialog(null, "Berhasil Dihapus");
                 dataTable();
             }else{
@@ -279,6 +310,14 @@ public class StaffPage_Studio extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tabelStudioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelStudioMouseClicked
+        DefaultTableModel table = (DefaultTableModel) tabelStudio.getModel();
+        
+        idStudio.setText((String) table.getValueAt(tabelStudio.getSelectedRow(), 0));
+        input_nomor_studio.setText((String) table.getValueAt(tabelStudio.getSelectedRow(), 1));
+        input_judul_film.setSelectedItem(table.getValueAt(tabelStudio.getSelectedRow(), 2));
+    }//GEN-LAST:event_tabelStudioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -319,7 +358,8 @@ public class StaffPage_Studio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel idstudio;
+    private javax.swing.JLabel idStudio;
+    private javax.swing.JComboBox input_judul_film;
     private javax.swing.JTextField input_nomor_studio;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -328,6 +368,7 @@ public class StaffPage_Studio extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -18,7 +18,7 @@ public class CRUD_Studio {
     private Connection koneksi;
     private PreparedStatement ps;
     private DBConection kdb = new DBConection();
-    private String id_studio, nomor_studio;
+    private String id_studio, nomor_studio, judul_film;
     
     public CRUD_Studio(){
     
@@ -26,6 +26,11 @@ public class CRUD_Studio {
 
     public CRUD_Studio(String nomor_studio) {
         this.nomor_studio = nomor_studio;
+    }
+
+    public CRUD_Studio(String nomor_studio, String judul_film) {
+        this.nomor_studio = nomor_studio;
+        this.judul_film = judul_film;
     }
     
     public void lihatNData() throws SQLException {
@@ -39,6 +44,7 @@ public class CRUD_Studio {
                 System.out.println("studio");
                 System.out.println("id: " + rs.getString(1));
                 System.out.println("nomor studio: " + rs.getString(2));
+                System.out.println("Judul Film: " + rs.getString(3));
                 System.out.println("");
             }
         } catch (SQLException ex) {
@@ -54,8 +60,8 @@ public class CRUD_Studio {
         PreparedStatement ps = null;
         int rowAffect = 0;
         String insertTableSQL = "INSERT INTO studio"
-                + "(nomor_studio) VALUES"
-                + "(?)";
+                + "(nomor_studio, judul) VALUES"
+                + "(?,?)";
         try {
         //buka koneksi saat objek dari desa ninja dibentuk
             kdb.bukaKoneksi();
@@ -64,6 +70,7 @@ public class CRUD_Studio {
         //Langkah ke 4 bagian 1
             ps = dbConnection.prepareStatement(insertTableSQL);
             ps.setString(1, this.nomor_studio);
+            ps.setString(2, this.judul_film);
         //langkah 4: eksekusi query
             rowAffect = ps.executeUpdate();
         } catch (Exception e) {
@@ -112,13 +119,13 @@ public class CRUD_Studio {
         }
     }
 
-    public boolean ubahData(String nomor_studio_baru)
+    public boolean ubahData(String idStudio, String nomor_studio_baru, String judul_film_baru)
             throws SQLException {
     //deklarasi connection dan preparedStatement
         Connection dbConnection = null;
         PreparedStatement ps = null;
         int rowAffect = 0;
-        String updateTableSQL = "UPDATE studio SET nomor_studio = ?"
+        String updateTableSQL = "UPDATE studio SET nomor_studio = ?, judul = ?"
                 + " WHERE id = ?";
         try {
     //buka koneksi saat objek dari desa ninja dibentuk
@@ -127,8 +134,9 @@ public class CRUD_Studio {
             dbConnection = kdb.getConn();
     //Langkah ke 4 bagian 1
             ps = dbConnection.prepareStatement(updateTableSQL);
-            ps.setString(2, id_studio);
+            ps.setString(3, idStudio);
             ps.setString(1, nomor_studio_baru);
+            ps.setString(2, judul_film_baru);
     //langkah 4: eksekusi query
             rowAffect = ps.executeUpdate();
         } catch (Exception e) {
@@ -144,8 +152,9 @@ public class CRUD_Studio {
             return false;
         }
     }
-
-    boolean ubahData(String text, String nomor_studio) {
+    /*
+    boolean ubahData(String text, String id_studio) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    */
 }
