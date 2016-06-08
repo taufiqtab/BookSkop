@@ -23,8 +23,7 @@ public class CRUD_Film {
     public CRUD_Film() {
     }
 
-    public CRUD_Film(String id_film, String judul, String sutradara, String kategori, String durasi, String tanggal, String jam_mulai, String jam_selesai, String harga) {
-        this.id_film = id_film;
+    public CRUD_Film(String judul, String sutradara, String kategori, String durasi, String tanggal, String jam_mulai, String jam_selesai, String harga) {
         this.judul = judul;
         this.sutradara = sutradara;
         this.kategori = kategori;

@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class StaffPage_Film extends javax.swing.JFrame {
 
-    private String id_film, judul, sutradara, kategori, durasi, tanggal, mulai, selesai, harga;
+    private String id_film, judul, sutradara, kategori, durasi, tanggal, jam_mulai, jam_selesai, harga;
     private Connection con;
     private Statement stat;
     private ResultSet res;
@@ -43,12 +43,15 @@ public class StaffPage_Film extends javax.swing.JFrame {
     
     private void dataTable(){
         DefaultTableModel tabel = new DefaultTableModel();
-        
-        tabel.addColumn("id");
-        tabel.addColumn("nama_bioskop");
-        tabel.addColumn("alamat");
-        tabel.addColumn("daerah"); 
-        tabel.addColumn("nomor_studio"); 
+        tabel.addColumn("ID");
+        tabel.addColumn("Judul");
+        tabel.addColumn("Sutradara");
+        tabel.addColumn("Kategori"); 
+        tabel.addColumn("Durasi"); 
+        tabel.addColumn("Tanggal"); 
+        tabel.addColumn("Waktu Mulai"); 
+        tabel.addColumn("Waktu Selesai"); 
+        tabel.addColumn("Harga"); 
         
         tabelFilm.setModel(tabel);
         
@@ -107,6 +110,7 @@ public class StaffPage_Film extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        id_film_label = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelFilm = new javax.swing.JTable();
@@ -143,6 +147,11 @@ public class StaffPage_Film extends javax.swing.JFrame {
         });
 
         jButton2.setText("Hapus");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Edit");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +166,8 @@ public class StaffPage_Film extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+
+        id_film_label.setText("0");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -175,9 +186,12 @@ public class StaffPage_Film extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(input_sutradara, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(input_durasi, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(input_judul, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(input_judul, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(id_film_label))
                             .addComponent(input_kategori, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel7)
@@ -216,7 +230,8 @@ public class StaffPage_Film extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(input_judul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(input_judul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(id_film_label))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -266,6 +281,11 @@ public class StaffPage_Film extends javax.swing.JFrame {
                 "Judul", "Sutradara", "Kategori", "Durasi", "Tanggal", "Waktu Mulai", "Waktu Selesai", "Harga"
             }
         ));
+        tabelFilm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelFilmMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabelFilm);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -310,9 +330,19 @@ public class StaffPage_Film extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
+    judul = input_judul.getText();
+    sutradara = input_sutradara.getText();
+    kategori = input_kategori.getText();
+    durasi = input_durasi.getText();
+    tanggal = input_tanggal.getText();
+    jam_mulai = input_mulai.getText();
+    jam_selesai = input_selesai.getText();
+    harga = input_harga.getText();
+        
         try {
-            CRUD_Bioskop  = new CRUD_Bioskop(nama_bioskop, alamat, daerah, nomor_studio);
-            if (BC.masukkanData()) {
+            CRUD_Film CF  = new CRUD_Film(judul,sutradara,kategori,durasi,tanggal,jam_mulai,jam_selesai,harga);
+            if (CF.masukkanData()) {
                 JOptionPane.showMessageDialog(null, "Berhasil", "Status", JOptionPane.INFORMATION_MESSAGE, null);
                 System.out.println("Berhasil");
                 dataTable();
@@ -331,8 +361,56 @@ public class StaffPage_Film extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        judul = input_judul.getText();
+        sutradara = input_sutradara.getText();
+        kategori = input_kategori.getText();
+        durasi = input_durasi.getText();
+        tanggal = input_tanggal.getText();
+        jam_mulai = input_mulai.getText();
+        jam_selesai = input_selesai.getText();
+        harga = input_harga.getText();
+        
+        try{
+            CRUD_Film CF = new CRUD_Film();
+            if(CF.ubahData(id_film_label.getText(),judul, sutradara, kategori, durasi,tanggal,jam_mulai,jam_selesai,harga)){
+                JOptionPane.showMessageDialog(null, "Berhasil Disimpan");
+                dataTable();
+            }else{
+                JOptionPane.showMessageDialog(null, "Terjadi Kesalahan");
+            }
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try{
+            CRUD_Film CF = new CRUD_Film();
+            if(CF.hapusData(id_film_label.getText())){
+                JOptionPane.showMessageDialog(null, "Berhasil Dihapus");
+                dataTable();
+            }else{
+                JOptionPane.showMessageDialog(null, "Terjadi Kesalahan");
+            }
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tabelFilmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelFilmMouseClicked
+        DefaultTableModel tableFilm = (DefaultTableModel) tabelFilm.getModel();
+        
+        id_film_label.setText((String) tableFilm.getValueAt(tabelFilm.getSelectedRow(), 0));
+        input_judul.setText((String) tableFilm.getValueAt(tabelFilm.getSelectedRow(), 1));
+        input_sutradara.setText((String) tableFilm.getValueAt(tabelFilm.getSelectedRow(), 2));
+        input_kategori.setText((String) tableFilm.getValueAt(tabelFilm.getSelectedRow(), 3));
+        input_durasi.setText((String) tableFilm.getValueAt(tabelFilm.getSelectedRow(), 4));
+        input_tanggal.setText((String) tableFilm.getValueAt(tabelFilm.getSelectedRow(), 5));
+        input_mulai.setText((String) tableFilm.getValueAt(tabelFilm.getSelectedRow(), 6));
+        input_selesai.setText((String) tableFilm.getValueAt(tabelFilm.getSelectedRow(), 7));
+        input_harga.setText((String) tableFilm.getValueAt(tabelFilm.getSelectedRow(), 8));
+        
+    }//GEN-LAST:event_tabelFilmMouseClicked
 
     /**
      * @param args the command line arguments
@@ -370,6 +448,7 @@ public class StaffPage_Film extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel id_film_label;
     private javax.swing.JTextField input_durasi;
     private javax.swing.JTextField input_harga;
     private javax.swing.JTextField input_judul;
