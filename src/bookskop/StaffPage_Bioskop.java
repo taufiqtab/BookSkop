@@ -287,7 +287,7 @@ public class StaffPage_Bioskop extends javax.swing.JFrame {
         nomor_studio = input_studio.getSelectedItem().toString();
          
         try {
-            BioskopCRUD BC = new BioskopCRUD(nama_bioskop, alamat, daerah, nomor_studio);
+            CRUD_Bioskop BC = new CRUD_Bioskop(nama_bioskop, alamat, daerah, nomor_studio);
             if (BC.masukkanData()) {
                 JOptionPane.showMessageDialog(null, "Berhasil", "Status", JOptionPane.INFORMATION_MESSAGE, null);
                 System.out.println("Berhasil");
@@ -323,7 +323,7 @@ public class StaffPage_Bioskop extends javax.swing.JFrame {
         nomor_studio = input_studio.getSelectedItem().toString();
         
         try{
-            BioskopCRUD BC = new BioskopCRUD();
+            CRUD_Bioskop BC = new CRUD_Bioskop();
             if(BC.ubahData(idbioskop.getText(),nama_bioskop, alamat, daerah, nomor_studio)){
                 JOptionPane.showMessageDialog(null, "Berhasil Disimpan");
                 dataTable();
@@ -338,7 +338,7 @@ public class StaffPage_Bioskop extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         try{
-            BioskopCRUD BC = new BioskopCRUD();
+            CRUD_Bioskop BC = new CRUD_Bioskop();
             if(BC.hapusData(idbioskop.getText())){
                 JOptionPane.showMessageDialog(null, "Berhasil Dihapus");
                 dataTable();

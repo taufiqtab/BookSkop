@@ -16,17 +16,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class BioskopCRUD {
+public class CRUD_Bioskop {
     private Connection koneksi;
     private PreparedStatement ps;
     private DBConection kdb = new DBConection();
     private String id_bioskop, nama_bioskop, alamat, daerah, nomor_studio;
     
-     public BioskopCRUD() {
+     public CRUD_Bioskop() {
 
     }
 
-    public BioskopCRUD(String nama_bioskop, String alamat, String daerah, String nomor_studio) {
+    public CRUD_Bioskop(String nama_bioskop, String alamat, String daerah, String nomor_studio) {
         this.nama_bioskop = nama_bioskop;
         this.alamat = alamat;
         this.daerah = daerah;
@@ -57,7 +57,7 @@ public class BioskopCRUD {
     }
     
     public boolean masukkanData() throws SQLException {
-//deklarasi connection dan preparedStatement
+    //deklarasi connection dan preparedStatement
         Connection dbConnection = null;
         PreparedStatement ps = null;
         int rowAffect = 0;
@@ -65,26 +65,26 @@ public class BioskopCRUD {
                 + "(nama_bioskop, alamat, daerah, nomor_studio) VALUES"
                 + "(?,?,?,?)";
         try {
-//buka koneksi saat objek dari desa ninja dibentuk
+    //buka koneksi saat objek dari desa ninja dibentuk
             kdb.bukaKoneksi();
-//inisialisasi dbConnection dari objek Connection
+    //inisialisasi dbConnection dari objek Connection
             dbConnection = kdb.getConn();
-//Langkah ke 4 bagian 1
+    //Langkah ke 4 bagian 1
             ps = dbConnection.prepareStatement(insertTableSQL);
             ps.setString(1, this.nama_bioskop);
             ps.setString(2, this.alamat);
             ps.setString(3, this.daerah);
             ps.setString(4, this.nomor_studio);
-//langkah 4: eksekusi query
+    //langkah 4: eksekusi query
             rowAffect = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
-//langkah ke 6
+    //langkah ke 6
             ps.close();
         }
-//langkah ke-5: menterjemahkan hasil yang dikembalikan
-//dari bentuk integer ke dalam bentuk boolean sebagai representasi keberhasilan eksekusi
+    //langkah ke-5: menterjemahkan hasil yang dikembalikan
+    //dari bentuk integer ke dalam bentuk boolean sebagai representasi keberhasilan eksekusi
         if (rowAffect > 0) {
             return true;
         } else {
@@ -93,29 +93,29 @@ public class BioskopCRUD {
     }
 
     public boolean hapusData(String id_bioskop) throws SQLException {
-//deklarasi connection dan preparedStatement
+    //deklarasi connection dan preparedStatement
         Connection dbConnection = null;
         PreparedStatement ps = null;
         int rowAffect = 0;
         this.id_bioskop = id_bioskop;
         String deleteTableSQL = "DELETE from bioskop WHERE id = ? ";
         try {
-//buka koneksi saat objek dari desa ninja dibentuk
+    //buka koneksi saat objek dari desa ninja dibentuk
             kdb.bukaKoneksi();
-//inisialisasi dbConnection dari objek Connection
+    //inisialisasi dbConnection dari objek Connection
             dbConnection = kdb.getConn();
-//Langkah ke 4 bagian 1
+    //Langkah ke 4 bagian 1
             ps = dbConnection.prepareStatement(deleteTableSQL);
             ps.setString(1, this.id_bioskop);
-//langkah 4: eksekusi query
+    //langkah 4: eksekusi query
             rowAffect = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
-//langkah ke 6
+    //langkah ke 6
             ps.close();
         }
-//langkah ke 5
+    //langkah ke 5
         if (rowAffect > 0) {
             return true;
         } else {
@@ -125,37 +125,41 @@ public class BioskopCRUD {
 
     public boolean ubahData(String id_bioskop, String nama_bioskop_baru, String alamat_baru, String daerah_baru, String nomor_studio_baru)
             throws SQLException {
-//deklarasi connection dan preparedStatement
+    //deklarasi connection dan preparedStatement
         Connection dbConnection = null;
         PreparedStatement ps = null;
         int rowAffect = 0;
         String updateTableSQL = "UPDATE bioskop SET nama_bioskop = ?, alamat = ?, daerah = ?, nomor_studio = ?"
                 + " WHERE id = ?";
         try {
-//buka koneksi saat objek dari desa ninja dibentuk
+    //buka koneksi saat objek dari desa ninja dibentuk
             kdb.bukaKoneksi();
-//inisialisasi dbConnection dari objek Connection
+    //inisialisasi dbConnection dari objek Connection
             dbConnection = kdb.getConn();
-//Langkah ke 4 bagian 1
+    //Langkah ke 4 bagian 1
             ps = dbConnection.prepareStatement(updateTableSQL);
             ps.setString(5, id_bioskop);
             ps.setString(1, nama_bioskop_baru);
             ps.setString(2, alamat_baru);
             ps.setString(3, daerah_baru);
             ps.setString(4, nomor_studio_baru);
-//langkah 4: eksekusi query
+    //langkah 4: eksekusi query
             rowAffect = ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
-//langkah ke 6
+    //langkah ke 6
             ps.close();
         }
-//langkah ke 5
+    //langkah ke 5
         if (rowAffect > 0) {
             return true;
         } else {
             return false;
         }
+    }
+
+    boolean ubahData(String text, String nomor_studio) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
