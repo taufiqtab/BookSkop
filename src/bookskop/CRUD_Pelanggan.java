@@ -23,12 +23,12 @@ public class CRUD_Pelanggan {
     public CRUD_Pelanggan() {
     }
 
-    public CRUD_Pelanggan(String nama, String nama_bioskop, String nomor_studio, String judul, String waktu_pemesanan, String tanggal, String waktu_mulai, String waktu_selesai, String baris, String nomor_bangku, String harga) {
+    public CRUD_Pelanggan(String nama, String nama_bioskop, String nomor_studio, String judul, String tanggal, String waktu_mulai, String waktu_selesai, String baris, String nomor_bangku, String harga) {
         this.nama = nama;
         this.nama_bioskop = nama_bioskop;
         this.nomor_studio = nomor_studio;
         this.judul = judul;
-        this.waktu_pemesanan = waktu_pemesanan;
+        //this.waktu_pemesanan = waktu_pemesanan;
         this.tanggal = tanggal;
         this.waktu_mulai = waktu_mulai;
         this.waktu_selesai = waktu_selesai;
@@ -140,15 +140,15 @@ public class CRUD_Pelanggan {
         }
     }
     
-    public boolean ubahData(String id_pelanggan, String nama_baru, String nama_bioskop_baru, String nomor_studio_baru, String judul_baru, String waktu_pemesanan_baru, String tanggal_baru, String waktu_mulai_baru, String waktu_selesai_baru, String baris_baru, String nomor_bangku_baru, String harga_baru)
+    public boolean ubahData(String id_pelanggan, String nama_baru, String nama_bioskop_baru, String nomor_studio_baru, String judul_baru, String tanggal_baru, String waktu_mulai_baru, String waktu_selesai_baru, String baris_baru, String nomor_bangku_baru, String harga_baru)
             throws SQLException {
     //deklarasi connection dan preparedStatement
         Connection dbConnection = null;
         PreparedStatement ps = null;
         int rowAffect = 0;
         String updateTableSQL = "UPDATE pelanggan SET nama = ?, nama_bioskop = ?, nomor_studio = ?,"
-                + " judul = ?, waktu_pemesanan = ?, tanggal = ?, waktu_mulai = ?, waktu_selesai = ? "
-                + " baris = ?, nomor_bangku = ?, harga = ?, WHERE id = ?";
+                + " judul = ?, tanggal = ?, waktu_mulai = ?, waktu_selesai = ?, "
+                + " baris = ?, nomor_bangku = ?, harga = ? WHERE id = ?";
         try {
     //buka koneksi saat objek dari desa ninja dibentuk
             kdb.bukaKoneksi();
@@ -156,18 +156,17 @@ public class CRUD_Pelanggan {
             dbConnection = kdb.getConn();
     //Langkah ke 4 bagian 1
             ps = dbConnection.prepareStatement(updateTableSQL);
-            ps.setString(12, id_pelanggan);
+            ps.setString(11, id_pelanggan);
             ps.setString(1, nama_baru);
             ps.setString(2, nama_bioskop_baru);
             ps.setString(3, nomor_studio_baru);
             ps.setString(4, judul_baru);
-            ps.setString(5, waktu_pemesanan_baru);
-            ps.setString(6, tanggal_baru);
-            ps.setString(7, waktu_mulai_baru);
-            ps.setString(8, waktu_selesai_baru);
-            ps.setString(9, baris_baru);
-            ps.setString(10, nomor_bangku_baru);
-            ps.setString(11, harga_baru);
+            ps.setString(5, tanggal_baru);
+            ps.setString(6, waktu_mulai_baru);
+            ps.setString(7, waktu_selesai_baru);
+            ps.setString(8, baris_baru);
+            ps.setString(9, nomor_bangku_baru);
+            ps.setString(10, harga_baru);
     //langkah 4: eksekusi query
             rowAffect = ps.executeUpdate();
         } catch (Exception e) {

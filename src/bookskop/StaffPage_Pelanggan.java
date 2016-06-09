@@ -29,6 +29,7 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
      */
     public StaffPage_Pelanggan() {
         initComponents();
+        dataTable();
     }
     
     private void koneksi(){
@@ -102,7 +103,6 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
         nama_bioskop = new javax.swing.JTextField();
         nomor_studio = new javax.swing.JTextField();
         judul_film = new javax.swing.JTextField();
-        waktu_pemesanan = new javax.swing.JTextField();
         waktu_mulai = new javax.swing.JTextField();
         simpan = new javax.swing.JButton();
         hapus = new javax.swing.JButton();
@@ -116,7 +116,6 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -173,8 +172,6 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
 
         jLabel5.setText("Judul :");
 
-        jLabel6.setText("Waktu Pemesanan :");
-
         jLabel7.setText("Tanggal :");
 
         jLabel8.setText("Waktu Mulai :");
@@ -202,17 +199,17 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
                         .addGap(356, 356, 356)
                         .addComponent(simpan))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
+                        .addGap(75, 75, 75)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel2))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(harga_tiket)
                             .addComponent(nama_pelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(waktu_pemesanan)
                             .addComponent(nama_bioskop)
                             .addComponent(nomor_studio)
                             .addComponent(judul_film))
@@ -231,8 +228,7 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel10)
                                             .addComponent(jLabel8)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel12))
+                                            .addComponent(jLabel7))
                                         .addGap(29, 29, 29))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -244,8 +240,7 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
                                     .addComponent(waktu_mulai)
                                     .addComponent(waktu_selesai, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(baris_bangku, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(nomor_bangku, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(harga_tiket, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                                    .addComponent(nomor_bangku, javax.swing.GroupLayout.Alignment.TRAILING))))))
                 .addContainerGap(132, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -257,39 +252,30 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(tanggal_pemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(waktu_mulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel8))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(waktu_selesai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel9))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(baris_bangku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel10))
-                            .addGap(6, 6, 6)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(nomor_bangku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel11))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(harga_tiket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel12)))
-                        .addComponent(jLabel7))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(tanggal_pemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(waktu_mulai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(waktu_selesai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(baris_bangku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nomor_bangku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11)))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nama_pelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(id_pelanggan)
                             .addComponent(jLabel2))
-                        .addGap(1, 1, 1)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(waktu_pemesanan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nama_bioskop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -302,8 +288,11 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(judul_film, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
-                        .addGap(36, 36, 36)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(harga_tiket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -364,7 +353,7 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
@@ -378,7 +367,7 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
         namaBioskop = nama_bioskop.getText();
         nomorStudio = nomor_studio.getText();
         judul = judul_film.getText();
-        waktuPemesanan = waktu_pemesanan.getText();
+        //waktuPemesanan = waktu_pemesanan.getText();
         tanggal = tanggal_pemesanan.getText();
         waktuMulai = waktu_mulai.getText();
         waktuSelesai = waktu_selesai.getText();
@@ -387,7 +376,7 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
         harga = harga_tiket.getText();
         
         try {
-            CRUD_Pelanggan CP  = new CRUD_Pelanggan(nama,namaBioskop,nomorStudio,judul,waktuPemesanan,tanggal,waktuMulai, waktuSelesai, baris, nomorBangku, harga);
+            CRUD_Pelanggan CP  = new CRUD_Pelanggan(nama,namaBioskop,nomorStudio,judul,tanggal,waktuMulai, waktuSelesai, baris, nomorBangku, harga);
             if (CP.masukkanData()) {
                 JOptionPane.showMessageDialog(null, "Berhasil", "Status", JOptionPane.INFORMATION_MESSAGE, null);
                 System.out.println("Berhasil");
@@ -411,7 +400,7 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
         namaBioskop = nama_bioskop.getText();
         nomorStudio = nomor_studio.getText();
         judul = judul_film.getText();
-        waktuPemesanan = waktu_pemesanan.getText();
+        //waktuPemesanan = waktu_pemesanan.getText();
         tanggal = tanggal_pemesanan.getText();
         waktuMulai = waktu_mulai.getText();
         waktuSelesai = waktu_selesai.getText();
@@ -421,7 +410,7 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
         
         try{
             CRUD_Pelanggan CP = new CRUD_Pelanggan();
-            if(CP.ubahData(id_pelanggan.getText(),nama,namaBioskop,nomorStudio,judul,waktuPemesanan,tanggal,waktuMulai, waktuSelesai, baris, nomorBangku, harga)){
+            if(CP.ubahData(id_pelanggan.getText(),nama,namaBioskop,nomorStudio,judul,tanggal,waktuMulai, waktuSelesai, baris, nomorBangku, harga)){
                 JOptionPane.showMessageDialog(null, "Berhasil Disimpan");
                 dataTable();
             }else{
@@ -454,7 +443,7 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
         nama_bioskop.setText((String) tabelPelanggan.getValueAt(table_pelanggan.getSelectedRow(), 2));
         nomor_studio.setText((String) tabelPelanggan.getValueAt(table_pelanggan.getSelectedRow(), 3));
         judul_film.setText((String) tabelPelanggan.getValueAt(table_pelanggan.getSelectedRow(), 4));
-        waktu_pemesanan.setText((String) tabelPelanggan.getValueAt(table_pelanggan.getSelectedRow(), 5));
+        //waktu_pemesanan.setText((String) tabelPelanggan.getValueAt(table_pelanggan.getSelectedRow(), 5));
         tanggal_pemesanan.setText((String) tabelPelanggan.getValueAt(table_pelanggan.getSelectedRow(), 6));
         waktu_mulai.setText((String) tabelPelanggan.getValueAt(table_pelanggan.getSelectedRow(), 7));
         waktu_selesai.setText((String) tabelPelanggan.getValueAt(table_pelanggan.getSelectedRow(), 8));
@@ -515,7 +504,6 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -531,7 +519,6 @@ public class StaffPage_Pelanggan extends javax.swing.JFrame {
     private javax.swing.JTable table_pelanggan;
     private javax.swing.JTextField tanggal_pemesanan;
     private javax.swing.JTextField waktu_mulai;
-    private javax.swing.JTextField waktu_pemesanan;
     private javax.swing.JTextField waktu_selesai;
     // End of variables declaration//GEN-END:variables
 }
