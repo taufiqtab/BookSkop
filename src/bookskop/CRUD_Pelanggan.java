@@ -73,8 +73,8 @@ public class CRUD_Pelanggan {
         PreparedStatement ps = null;
         int rowAffect = 0;
         String insertTableSQL = "INSERT INTO pelanggan"
-                + "(nama, nama_bioskop, nomor_studio, judul, waktu_pemesanan, tanggal, waktu_mulai, waktu_selesai, baris, nomor_bangku, harga) VALUES"
-                + "(?,?,?,?,?,?,?,?,?,?,?)";
+                + "(nama, nama_bioskop, nomor_studio, judul, tanggal, waktu_mulai, waktu_selesai, baris, nomor_bangku, harga) VALUES"
+                + "(?,?,?,?,?,?,?,?,?,?)";
         try {
     //buka koneksi saat objek dari desa ninja dibentuk
             kdb.bukaKoneksi();
@@ -86,13 +86,12 @@ public class CRUD_Pelanggan {
             ps.setString(2, this.nama_bioskop);
             ps.setString(3, this.nomor_studio);
             ps.setString(4, this.judul);
-            ps.setString(5, this.waktu_pemesanan);
-            ps.setString(6, this.tanggal);
-            ps.setString(7, this.waktu_mulai);
-            ps.setString(8, this.waktu_selesai);
-            ps.setString(9, this.baris);
-            ps.setString(10, this.nomor_bangku);
-            ps.setString(11, this.harga);
+            ps.setString(5, this.tanggal);
+            ps.setString(6, this.waktu_mulai);
+            ps.setString(7, this.waktu_selesai);
+            ps.setString(8, this.baris);
+            ps.setString(9, this.nomor_bangku);
+            ps.setString(10, this.harga);
     //langkah 4: eksekusi query
             rowAffect = ps.executeUpdate();
         } catch (Exception e) {
