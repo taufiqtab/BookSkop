@@ -5,18 +5,41 @@
  */
 package bookskop;
 
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author TaufiqTab
  */
 public class FormPesan extends javax.swing.JFrame {
-
+    public boolean bioskopDipilih = false;
     /**
      * Creates new form FormPesan
      */
     public FormPesan() {
         initComponents();
+        ShowComboDB();
     }
+    
+    private void ShowComboDB(){
+        DefaultComboBoxModel data = new DefaultComboBoxModel();
+        DefaultComboBoxModel data2 = new DefaultComboBoxModel();
+       
+        input_pesan_bioskop.setModel(data);
+        input_pesan_film.setModel(data2);
+        
+        
+       
+        try{
+            CRUD_Pesan CP = new CRUD_Pesan();
+            CP.comboDataBioskop(data);
+            CP.comboDataFilm(data2);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,12 +71,12 @@ public class FormPesan extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox3 = new javax.swing.JComboBox();
+        input_pesan_bioskop = new javax.swing.JComboBox();
+        input_pesan_film = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
+        no_studio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -186,9 +209,17 @@ public class FormPesan extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Pesan Tiket");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Depok XXI", "Platinum Margo", "Detos" }));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "My Stupid Boss", "Stupid My Boss", "Boss Stupid My", "My Boss Stupid" }));
+        input_pesan_bioskop.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Depok XXI", "Platinum Margo", "Detos" }));
+        input_pesan_bioskop.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                input_pesan_bioskopItemStateChanged(evt);
+            }
+        });
+        input_pesan_bioskop.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                input_pesan_bioskopMouseClicked(evt);
+            }
+        });
 
         jButton1.setText("Pesan");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -206,7 +237,7 @@ public class FormPesan extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("0");
+        no_studio.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -223,11 +254,11 @@ public class FormPesan extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(input_pesan_film, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(input_pesan_bioskop, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel1)
                                         .addGap(18, 18, 18)
@@ -235,7 +266,7 @@ public class FormPesan extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabel7)))
+                                        .addComponent(no_studio)))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -264,7 +295,7 @@ public class FormPesan extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(input_pesan_bioskop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,11 +303,11 @@ public class FormPesan extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(input_pesan_film, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel7))))
+                            .addComponent(no_studio))))
                 .addGap(19, 19, 19)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
@@ -305,6 +336,28 @@ public class FormPesan extends javax.swing.JFrame {
         new Tiket().show();
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void input_pesan_bioskopItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_input_pesan_bioskopItemStateChanged
+        // TODO add your handling code here:
+        if(bioskopDipilih){
+            DefaultComboBoxModel spesFilm = new DefaultComboBoxModel();
+            input_pesan_film.setModel(spesFilm);
+            try{
+                CRUD_Pesan CP = new CRUD_Pesan();
+                CP.comboDataFilmSpesifik(spesFilm, input_pesan_bioskop.getSelectedItem().toString());
+                CP.labelDataIdStudio(no_studio, input_pesan_bioskop.getSelectedItem().toString(), input_pesan_film.getSelectedItem().toString());
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+            
+            bioskopDipilih = false;
+        }
+    }//GEN-LAST:event_input_pesan_bioskopItemStateChanged
+
+    private void input_pesan_bioskopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_input_pesan_bioskopMouseClicked
+        // TODO add your handling code here:
+        bioskopDipilih = true;
+    }//GEN-LAST:event_input_pesan_bioskopMouseClicked
 
     /**
      * @param args the command line arguments
@@ -342,6 +395,8 @@ public class FormPesan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox input_pesan_bioskop;
+    private javax.swing.JComboBox input_pesan_film;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -357,17 +412,15 @@ public class FormPesan extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel no_studio;
     // End of variables declaration//GEN-END:variables
 }

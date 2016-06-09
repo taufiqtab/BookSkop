@@ -18,12 +18,12 @@ public class CRUD_Film {
     private Connection koneksi;
     private PreparedStatement ps;
     private DBConection kdb = new DBConection();
-    private String id_film, judul, sutradara, kategori, durasi,tanggal,jam_mulai,jam_selesai,harga;
+    private String id_film, judul, sutradara, kategori, durasi,tanggal,jam_mulai,jam_selesai,harga,nama_bioskop,nomor_studio;
 
     public CRUD_Film() {
     }
 
-    public CRUD_Film(String judul, String sutradara, String kategori, String durasi, String tanggal, String jam_mulai, String jam_selesai, String harga) {
+    public CRUD_Film(String judul, String sutradara, String kategori, String durasi, String tanggal, String jam_mulai, String jam_selesai, String harga, String nama_bioskop, String nomor_studio) {
         this.judul = judul;
         this.sutradara = sutradara;
         this.kategori = kategori;
@@ -32,6 +32,8 @@ public class CRUD_Film {
         this.jam_mulai = jam_mulai;
         this.jam_selesai = jam_selesai;
         this.harga = harga;
+        this.nama_bioskop = nama_bioskop;
+        this.nomor_studio = nomor_studio;
     }
     
     public void lihatNData() throws SQLException {
@@ -52,6 +54,8 @@ public class CRUD_Film {
                 System.out.println("jam mulai: " + rs.getString(7));
                 System.out.println("jam selesai: " + rs.getString(8));
                 System.out.println("harga: " + rs.getString(9));
+                System.out.println("nama bioskop: " + rs.getString(10));
+                System.out.println("nomor studio: " + rs.getString(11));
                 System.out.println("");
             }
         } catch (SQLException ex) {
@@ -67,8 +71,8 @@ public class CRUD_Film {
         PreparedStatement ps = null;
         int rowAffect = 0;
         String insertTableSQL = "INSERT INTO film"
-                + "(judul, sutradara, kategori, durasi, tanggal, jam_mulai, jam_selesai, harga) VALUES"
-                + "(?,?,?,?,?,?,?,?)";
+                + "(judul, sutradara, kategori, durasi, tanggal, jam_mulai, jam_selesai, harga, nama_bioskop, nomor_studio) VALUES"
+                + "(?,?,?,?,?,?,?,?,?,?)";
         try {
     //buka koneksi saat objek dari desa ninja dibentuk
             kdb.bukaKoneksi();
@@ -84,6 +88,8 @@ public class CRUD_Film {
             ps.setString(6, this.jam_mulai);
             ps.setString(7, this.jam_selesai);
             ps.setString(8, this.harga);
+            ps.setString(9, this.nama_bioskop);
+            ps.setString(10, this.nomor_studio);
     //langkah 4: eksekusi query
             rowAffect = ps.executeUpdate();
         } catch (Exception e) {
@@ -132,14 +138,14 @@ public class CRUD_Film {
         }
     }
     
-    public boolean ubahData(String id_film, String judul_baru, String sutradara_baru, String kategori_baru, String durasi_baru, String tanggal_baru, String jam_mulai_baru, String jam_selesai_baru, String harga_baru)
+    public boolean ubahData(String id_film, String judul_baru, String sutradara_baru, String kategori_baru, String durasi_baru, String tanggal_baru, String jam_mulai_baru, String jam_selesai_baru, String harga_baru, String nama_bioskop_baru, String nomor_studio_baru)
             throws SQLException {
     //deklarasi connection dan preparedStatement
         Connection dbConnection = null;
         PreparedStatement ps = null;
         int rowAffect = 0;
         String updateTableSQL = "UPDATE film SET judul = ?, sutradara = ?, kategori = ?,"
-                + " durasi = ?, tanggal = ?, jam_mulai = ?, jam_selesai = ?, harga = ? "
+                + " durasi = ?, tanggal = ?, jam_mulai = ?, jam_selesai = ?, harga = ?, nama_bioskop = ?, nomor_studio = ?"
                 + " WHERE id = ?";
         try {
     //buka koneksi saat objek dari desa ninja dibentuk
@@ -148,7 +154,7 @@ public class CRUD_Film {
             dbConnection = kdb.getConn();
     //Langkah ke 4 bagian 1
             ps = dbConnection.prepareStatement(updateTableSQL);
-            ps.setString(9, id_film);
+            ps.setString(11, id_film);
             ps.setString(1, judul_baru);
             ps.setString(2, sutradara_baru);
             ps.setString(3, kategori_baru);
@@ -157,6 +163,9 @@ public class CRUD_Film {
             ps.setString(6, jam_mulai_baru);
             ps.setString(7, jam_selesai_baru);
             ps.setString(8, harga_baru);
+            ps.setString(9, nama_bioskop_baru);
+            ps.setString(10, nomor_studio_baru);
+            
     //langkah 4: eksekusi query
             rowAffect = ps.executeUpdate();
         } catch (Exception e) {

@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class StaffPage_Film extends javax.swing.JFrame {
 
-    private String id_film, judul, sutradara, kategori, durasi, tanggal, jam_mulai, jam_selesai, harga;
+    private String id_film, judul, sutradara, kategori, durasi, tanggal, jam_mulai, jam_selesai, harga, nama_bioskop, nomor_studio;
     private Connection con;
     private Statement stat;
     private ResultSet res;
@@ -29,6 +30,7 @@ public class StaffPage_Film extends javax.swing.JFrame {
     public StaffPage_Film() {
         initComponents();
         dataTable();
+        ShowComboDB();
     }
     
     private void koneksi(){
@@ -52,6 +54,8 @@ public class StaffPage_Film extends javax.swing.JFrame {
         tabel.addColumn("Waktu Mulai"); 
         tabel.addColumn("Waktu Selesai"); 
         tabel.addColumn("Harga"); 
+        tabel.addColumn("Nama Bioskop"); 
+        tabel.addColumn("Nomor Studio"); 
         
         tabelFilm.setModel(tabel);
         
@@ -72,9 +76,29 @@ public class StaffPage_Film extends javax.swing.JFrame {
                     res.getString(7),
                     res.getString(8),
                     res.getString(9),
+                    res.getString(10),
+                    res.getString(11),
                 });
             }
         }catch (SQLException e){
+        }
+    }
+    
+    private void ShowComboDB(){
+        DefaultComboBoxModel data = new DefaultComboBoxModel();
+        DefaultComboBoxModel data2 = new DefaultComboBoxModel();
+       
+        input_nama_bioskop.setModel(data);
+        input_nomor_studio.setModel(data2);
+        
+        
+       
+        try{
+            CRUD_Pesan CP = new CRUD_Pesan();
+            CP.comboDataBioskop(data);
+            CP.comboDataStudio(data2);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
         }
     }
 
@@ -111,6 +135,10 @@ public class StaffPage_Film extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         id_film_label = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        input_nama_bioskop = new javax.swing.JComboBox();
+        jLabel11 = new javax.swing.JLabel();
+        input_nomor_studio = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelFilm = new javax.swing.JTable();
@@ -169,54 +197,73 @@ public class StaffPage_Film extends javax.swing.JFrame {
 
         id_film_label.setText("0");
 
+        jLabel10.setText("Nama Bioskop :");
+
+        input_nama_bioskop.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel11.setText("No Studio :");
+
+        input_nomor_studio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addGap(58, 58, 58)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(input_sutradara, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(input_durasi, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(input_judul, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(id_film_label))
-                            .addComponent(input_kategori, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(input_harga, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(input_selesai, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(input_mulai, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(input_tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3))
+                                .addGap(58, 58, 58)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(input_sutradara, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(input_judul, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(id_film_label))
+                                    .addComponent(input_kategori, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(input_nama_bioskop, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(input_durasi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel11))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(input_harga, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(input_selesai, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(input_mulai, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(input_tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(input_nomor_studio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(220, 220, 220)
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(220, 220, 220)
-                        .addComponent(jLabel1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(237, 237, 237)
+                                .addComponent(jButton1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel10)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(235, 235, 235)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,12 +307,20 @@ public class StaffPage_Film extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(input_harga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10)
+                        .addComponent(input_nama_bioskop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel11)
+                        .addComponent(input_nomor_studio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -312,7 +367,7 @@ public class StaffPage_Film extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -321,9 +376,9 @@ public class StaffPage_Film extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -332,17 +387,19 @@ public class StaffPage_Film extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
-    judul = input_judul.getText();
-    sutradara = input_sutradara.getText();
-    kategori = input_kategori.getText();
-    durasi = input_durasi.getText();
-    tanggal = input_tanggal.getText();
-    jam_mulai = input_mulai.getText();
-    jam_selesai = input_selesai.getText();
-    harga = input_harga.getText();
+        judul = input_judul.getText();
+        sutradara = input_sutradara.getText();
+        kategori = input_kategori.getText();
+        durasi = input_durasi.getText();
+        tanggal = input_tanggal.getText();
+        jam_mulai = input_mulai.getText();
+        jam_selesai = input_selesai.getText();
+        harga = input_harga.getText();
+        nama_bioskop = input_nama_bioskop.getSelectedItem().toString();
+        nomor_studio = input_nomor_studio.getSelectedItem().toString();
         
         try {
-            CRUD_Film CF  = new CRUD_Film(judul,sutradara,kategori,durasi,tanggal,jam_mulai,jam_selesai,harga);
+            CRUD_Film CF  = new CRUD_Film(judul,sutradara,kategori,durasi,tanggal,jam_mulai,jam_selesai,harga,nama_bioskop,nomor_studio);
             if (CF.masukkanData()) {
                 JOptionPane.showMessageDialog(null, "Berhasil", "Status", JOptionPane.INFORMATION_MESSAGE, null);
                 System.out.println("Berhasil");
@@ -370,10 +427,12 @@ public class StaffPage_Film extends javax.swing.JFrame {
         jam_mulai = input_mulai.getText();
         jam_selesai = input_selesai.getText();
         harga = input_harga.getText();
+        nama_bioskop = input_nama_bioskop.getSelectedItem().toString();
+        nomor_studio = input_nomor_studio.getSelectedItem().toString();
         
         try{
             CRUD_Film CF = new CRUD_Film();
-            if(CF.ubahData(id_film_label.getText(),judul, sutradara, kategori, durasi,tanggal,jam_mulai,jam_selesai,harga)){
+            if(CF.ubahData(id_film_label.getText(),judul, sutradara, kategori, durasi,tanggal,jam_mulai,jam_selesai,harga,nama_bioskop,nomor_studio)){
                 JOptionPane.showMessageDialog(null, "Berhasil Disimpan");
                 dataTable();
             }else{
@@ -410,6 +469,9 @@ public class StaffPage_Film extends javax.swing.JFrame {
         input_mulai.setText((String) tableFilm.getValueAt(tabelFilm.getSelectedRow(), 6));
         input_selesai.setText((String) tableFilm.getValueAt(tabelFilm.getSelectedRow(), 7));
         input_harga.setText((String) tableFilm.getValueAt(tabelFilm.getSelectedRow(), 8));
+        input_nama_bioskop.setSelectedItem(tableFilm.getValueAt(tabelFilm.getSelectedRow(), 9));
+        input_nomor_studio.setSelectedItem(tableFilm.getValueAt(tabelFilm.getSelectedRow(), 10));
+               
         
     }//GEN-LAST:event_tabelFilmMouseClicked
 
@@ -455,6 +517,8 @@ public class StaffPage_Film extends javax.swing.JFrame {
     private javax.swing.JTextField input_judul;
     private javax.swing.JTextField input_kategori;
     private javax.swing.JTextField input_mulai;
+    private javax.swing.JComboBox input_nama_bioskop;
+    private javax.swing.JComboBox input_nomor_studio;
     private javax.swing.JTextField input_selesai;
     private javax.swing.JTextField input_sutradara;
     private javax.swing.JTextField input_tanggal;
@@ -464,6 +528,8 @@ public class StaffPage_Film extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

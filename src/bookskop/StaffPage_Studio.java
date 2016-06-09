@@ -71,13 +71,13 @@ public class StaffPage_Studio extends javax.swing.JFrame {
     }
 
     private void ShowComboDB(){
-        DefaultComboBoxModel supplier = new DefaultComboBoxModel();
+        DefaultComboBoxModel data = new DefaultComboBoxModel();
        
-        input_judul_film.setModel(supplier);
+        input_judul_film.setModel(data);
        
         try{
             CRUD_Studio CS = new CRUD_Studio();
-            CS.comboData(supplier);
+            CS.comboData(data);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
