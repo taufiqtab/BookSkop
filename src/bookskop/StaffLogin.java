@@ -115,7 +115,8 @@ public class StaffLogin extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        if(passInput.getText().equals("admin") && userInput.getText().equals("admin")){
+        FreeSyntax FS = new FreeSyntax();
+        if(FS.getLogin(userInput.getText(), passInput.getText())){
             new StaffPage().show();
             this.dispose();
         }
