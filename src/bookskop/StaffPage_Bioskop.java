@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,7 +31,7 @@ public class StaffPage_Bioskop extends javax.swing.JFrame {
     public StaffPage_Bioskop() {
         initComponents();
         dataTable();
-
+        showCboSupplier();
     }
 
     private void koneksi(){
@@ -70,6 +71,19 @@ public class StaffPage_Bioskop extends javax.swing.JFrame {
                 });
             }
         }catch (SQLException e){
+        }
+    }
+    
+    private void showCboSupplier(){
+        DefaultComboBoxModel supplier = new DefaultComboBoxModel();
+       
+        input_studio.setModel(supplier);
+       
+        try{
+            CRUD_Bioskop CB = new CRUD_Bioskop();
+            CB.comboSupplier(supplier);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
         }
     }
     /**

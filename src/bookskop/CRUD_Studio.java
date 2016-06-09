@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -150,6 +152,26 @@ public class CRUD_Studio {
             return true;
         } else {
             return false;
+        }
+    }
+    
+    public void comboSupplier(DefaultComboBoxModel model){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+       
+        String strSql="SELECT * FROM film";
+       
+        try {
+            kdb.bukaKoneksi();
+            koneksi = kdb.getConn();
+            ps = koneksi.prepareStatement(strSql);
+            rs = ps.executeQuery();
+           
+            while (rs.next()){
+                model.addElement(rs.getString(2));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Terjadi Kesalahan : " +e);
         }
     }
     /*

@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,6 +31,7 @@ public class StaffPage_Studio extends javax.swing.JFrame {
     public StaffPage_Studio() {
         initComponents();
         dataTable();
+        showCboSupplier();
     }
     
     private void koneksi(){
@@ -68,6 +70,19 @@ public class StaffPage_Studio extends javax.swing.JFrame {
         }
     }
 
+    private void showCboSupplier(){
+        DefaultComboBoxModel supplier = new DefaultComboBoxModel();
+       
+        input_judul_film.setModel(supplier);
+       
+        try{
+            CRUD_Studio CS = new CRUD_Studio();
+            CS.comboSupplier(supplier);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
