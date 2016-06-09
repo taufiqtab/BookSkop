@@ -161,7 +161,7 @@ public class CRUD_Bioskop {
         }
     }
     
-    public void comboSupplier(DefaultComboBoxModel model){
+    public void comboData(DefaultComboBoxModel model){
         PreparedStatement ps = null;
         ResultSet rs = null;
        

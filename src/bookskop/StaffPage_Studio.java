@@ -31,7 +31,7 @@ public class StaffPage_Studio extends javax.swing.JFrame {
     public StaffPage_Studio() {
         initComponents();
         dataTable();
-        showCboSupplier();
+        ShowComboDB();
     }
     
     private void koneksi(){
@@ -70,14 +70,14 @@ public class StaffPage_Studio extends javax.swing.JFrame {
         }
     }
 
-    private void showCboSupplier(){
+    private void ShowComboDB(){
         DefaultComboBoxModel supplier = new DefaultComboBoxModel();
        
         input_judul_film.setModel(supplier);
        
         try{
             CRUD_Studio CS = new CRUD_Studio();
-            CS.comboSupplier(supplier);
+            CS.comboData(supplier);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }

@@ -31,7 +31,7 @@ public class StaffPage_Bioskop extends javax.swing.JFrame {
     public StaffPage_Bioskop() {
         initComponents();
         dataTable();
-        showCboSupplier();
+        ShowComboDB();
     }
 
     private void koneksi(){
@@ -74,14 +74,14 @@ public class StaffPage_Bioskop extends javax.swing.JFrame {
         }
     }
     
-    private void showCboSupplier(){
-        DefaultComboBoxModel supplier = new DefaultComboBoxModel();
+    private void ShowComboDB(){
+        DefaultComboBoxModel data = new DefaultComboBoxModel();
        
-        input_studio.setModel(supplier);
+        input_studio.setModel(data);
        
         try{
             CRUD_Bioskop CB = new CRUD_Bioskop();
-            CB.comboSupplier(supplier);
+            CB.comboData(data);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }

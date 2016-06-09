@@ -155,7 +155,7 @@ public class CRUD_Studio {
         }
     }
     
-    public void comboSupplier(DefaultComboBoxModel model){
+    public void comboData(DefaultComboBoxModel model){
         PreparedStatement ps = null;
         ResultSet rs = null;
        
