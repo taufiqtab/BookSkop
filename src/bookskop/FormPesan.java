@@ -13,6 +13,7 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class FormPesan extends javax.swing.JFrame {
     public boolean bioskopDipilih = false;
+    public boolean filmDipilih = false;
     /**
      * Creates new form FormPesan
      */
@@ -221,6 +222,17 @@ public class FormPesan extends javax.swing.JFrame {
             }
         });
 
+        input_pesan_film.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                input_pesan_filmItemStateChanged(evt);
+            }
+        });
+        input_pesan_film.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                input_pesan_filmMouseClicked(evt);
+            }
+        });
+
         jButton1.setText("Pesan");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -358,6 +370,24 @@ public class FormPesan extends javax.swing.JFrame {
         // TODO add your handling code here:
         bioskopDipilih = true;
     }//GEN-LAST:event_input_pesan_bioskopMouseClicked
+
+    private void input_pesan_filmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_input_pesan_filmMouseClicked
+        // TODO add your handling code here:
+        filmDipilih = true;
+    }//GEN-LAST:event_input_pesan_filmMouseClicked
+
+    private void input_pesan_filmItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_input_pesan_filmItemStateChanged
+        // TODO add your handling code here:
+        if(filmDipilih){
+            try{
+                CRUD_Pesan CP = new CRUD_Pesan();
+                CP.labelDataIdStudio(no_studio, input_pesan_bioskop.getSelectedItem().toString(), input_pesan_film.getSelectedItem().toString());
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+            filmDipilih = false;
+        }
+    }//GEN-LAST:event_input_pesan_filmItemStateChanged
 
     /**
      * @param args the command line arguments
