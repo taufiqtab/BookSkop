@@ -82,7 +82,7 @@ public class CRUD_Pelanggan {
             dbConnection = kdb.getConn();
     //Langkah ke 4 bagian 1
             ps = dbConnection.prepareStatement(insertTableSQL);
-            ps.setString(1, this.judul);
+            ps.setString(1, this.nama);
             ps.setString(2, this.nama_bioskop);
             ps.setString(3, this.nomor_studio);
             ps.setString(4, this.judul);

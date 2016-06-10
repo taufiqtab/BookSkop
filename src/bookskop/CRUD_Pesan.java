@@ -93,6 +93,86 @@ public class CRUD_Pesan {
         }
     }
     
+    public void labelDataHarga(JLabel label, String nama_bioskop, String judul){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+       
+        String strSql="SELECT * FROM film WHERE nama_bioskop = '"+nama_bioskop+"' AND judul = '"+judul+"' ";
+        
+        try {
+            kdb.bukaKoneksi();
+            koneksi = kdb.getConn();
+            ps = koneksi.prepareStatement(strSql);
+            rs = ps.executeQuery();
+           
+            while (rs.next()){
+                label.setText(rs.getString(9));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Terjadi Kesalahan : " +e);
+        }
+    }
+    
+    public void labelDataWaktuMulai(JLabel label, String nama_bioskop, String judul){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+       
+        String strSql="SELECT * FROM film WHERE nama_bioskop = '"+nama_bioskop+"' AND judul = '"+judul+"' ";
+        
+        try {
+            kdb.bukaKoneksi();
+            koneksi = kdb.getConn();
+            ps = koneksi.prepareStatement(strSql);
+            rs = ps.executeQuery();
+           
+            while (rs.next()){
+                label.setText(rs.getString(7));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Terjadi Kesalahan : " +e);
+        }
+    }
+    
+    public void labelDataWaktuSelesai(JLabel label, String nama_bioskop, String judul){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+       
+        String strSql="SELECT * FROM film WHERE nama_bioskop = '"+nama_bioskop+"' AND judul = '"+judul+"' ";
+        
+        try {
+            kdb.bukaKoneksi();
+            koneksi = kdb.getConn();
+            ps = koneksi.prepareStatement(strSql);
+            rs = ps.executeQuery();
+           
+            while (rs.next()){
+                label.setText(rs.getString(8));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Terjadi Kesalahan : " +e);
+        }
+    }
+    
+    public void labelDataTanggal(JLabel label, String nama_bioskop, String judul){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+       
+        String strSql="SELECT * FROM film WHERE nama_bioskop = '"+nama_bioskop+"' AND judul = '"+judul+"' ";
+        
+        try {
+            kdb.bukaKoneksi();
+            koneksi = kdb.getConn();
+            ps = koneksi.prepareStatement(strSql);
+            rs = ps.executeQuery();
+           
+            while (rs.next()){
+                label.setText(rs.getString(6));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Terjadi Kesalahan : " +e);
+        }
+    }
+    
     public void comboDataFilm(DefaultComboBoxModel model){
         PreparedStatement ps = null;
         ResultSet rs = null;
