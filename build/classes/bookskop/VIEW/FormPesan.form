@@ -190,32 +190,32 @@
                   <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jButton15" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="bangkuC1" min="-2" pref="70" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton14" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="bangkuC2" min="-2" pref="70" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                          <Component id="jButton12" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="bangkuC3" min="-2" pref="70" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton13" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="bangkuC4" min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jButton11" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="bangkuB1" min="-2" pref="70" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton10" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="bangkuB2" min="-2" pref="70" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                              <Component id="jButton8" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="bangkuB3" min="-2" pref="70" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton9" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="bangkuB4" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jButton4" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="bangkuA1" min="-2" pref="70" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton5" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="bangkuA2" min="-2" pref="70" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                              <Component id="jButton7" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="bangkuA3" min="-2" pref="70" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton6" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="bangkuA4" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
@@ -229,24 +229,24 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton4" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jButton5" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jButton7" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jButton6" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="bangkuA1" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="bangkuA2" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="bangkuA3" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="bangkuA4" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton11" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jButton10" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jButton8" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jButton9" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="bangkuB1" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="bangkuB2" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="bangkuB3" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="bangkuB4" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton15" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jButton14" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jButton12" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jButton13" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="bangkuC1" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="bangkuC2" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="bangkuC3" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="bangkuC4" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="42" max="32767" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -256,100 +256,100 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="bangkuA1">
           <Properties>
             <Property name="text" type="java.lang.String" value="A1"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bangkuA1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
+        <Component class="javax.swing.JButton" name="bangkuA2">
           <Properties>
             <Property name="text" type="java.lang.String" value="A2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bangkuA2ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton6">
+        <Component class="javax.swing.JButton" name="bangkuA4">
           <Properties>
             <Property name="text" type="java.lang.String" value="A4"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bangkuA4ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton7">
+        <Component class="javax.swing.JButton" name="bangkuA3">
           <Properties>
             <Property name="text" type="java.lang.String" value="A3"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bangkuA3ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton8">
+        <Component class="javax.swing.JButton" name="bangkuB3">
           <Properties>
             <Property name="text" type="java.lang.String" value="B3"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bangkuB3ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton9">
+        <Component class="javax.swing.JButton" name="bangkuB4">
           <Properties>
             <Property name="text" type="java.lang.String" value="B4"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bangkuB4ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton10">
+        <Component class="javax.swing.JButton" name="bangkuB2">
           <Properties>
             <Property name="text" type="java.lang.String" value="B2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton10ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bangkuB2ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton11">
+        <Component class="javax.swing.JButton" name="bangkuB1">
           <Properties>
             <Property name="text" type="java.lang.String" value="B1"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton11ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bangkuB1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton12">
+        <Component class="javax.swing.JButton" name="bangkuC3">
           <Properties>
             <Property name="text" type="java.lang.String" value="C3"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton12ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bangkuC3ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton13">
+        <Component class="javax.swing.JButton" name="bangkuC4">
           <Properties>
             <Property name="text" type="java.lang.String" value="C4"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton13ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bangkuC4ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton14">
+        <Component class="javax.swing.JButton" name="bangkuC2">
           <Properties>
             <Property name="text" type="java.lang.String" value="C2"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton14ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bangkuC2ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton15">
+        <Component class="javax.swing.JButton" name="bangkuC1">
           <Properties>
             <Property name="text" type="java.lang.String" value="C1"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton15ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bangkuC1ActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
@@ -438,8 +438,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Reset"/>
+        <Property name="text" type="java.lang.String" value="Refresh"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>

@@ -7,8 +7,10 @@ package bookskop.VIEW;
 
 import bookskop.CRUD.CRUD_Pesan;
 import bookskop.CRUD.CRUD_Pelanggan;
+import bookskop.CRUD.FreeSyntax;
 import java.sql.SQLException;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +21,7 @@ public class FormPesan extends javax.swing.JFrame {
     public boolean bioskopDipilih = false;
     public boolean filmDipilih = false;
     public String baris, nomer;
+    public int[] bangku = new int[12];
     /**
      * Creates new form FormPesan
      */
@@ -61,18 +64,18 @@ public class FormPesan extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        bangkuA1 = new javax.swing.JButton();
+        bangkuA2 = new javax.swing.JButton();
+        bangkuA4 = new javax.swing.JButton();
+        bangkuA3 = new javax.swing.JButton();
+        bangkuB3 = new javax.swing.JButton();
+        bangkuB4 = new javax.swing.JButton();
+        bangkuB2 = new javax.swing.JButton();
+        bangkuB1 = new javax.swing.JButton();
+        bangkuC3 = new javax.swing.JButton();
+        bangkuC4 = new javax.swing.JButton();
+        bangkuC2 = new javax.swing.JButton();
+        bangkuC1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -104,87 +107,87 @@ public class FormPesan extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jButton4.setText("A1");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        bangkuA1.setText("A1");
+        bangkuA1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                bangkuA1ActionPerformed(evt);
             }
         });
 
-        jButton5.setText("A2");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        bangkuA2.setText("A2");
+        bangkuA2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                bangkuA2ActionPerformed(evt);
             }
         });
 
-        jButton6.setText("A4");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        bangkuA4.setText("A4");
+        bangkuA4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                bangkuA4ActionPerformed(evt);
             }
         });
 
-        jButton7.setText("A3");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        bangkuA3.setText("A3");
+        bangkuA3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                bangkuA3ActionPerformed(evt);
             }
         });
 
-        jButton8.setText("B3");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        bangkuB3.setText("B3");
+        bangkuB3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                bangkuB3ActionPerformed(evt);
             }
         });
 
-        jButton9.setText("B4");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        bangkuB4.setText("B4");
+        bangkuB4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                bangkuB4ActionPerformed(evt);
             }
         });
 
-        jButton10.setText("B2");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        bangkuB2.setText("B2");
+        bangkuB2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                bangkuB2ActionPerformed(evt);
             }
         });
 
-        jButton11.setText("B1");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        bangkuB1.setText("B1");
+        bangkuB1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                bangkuB1ActionPerformed(evt);
             }
         });
 
-        jButton12.setText("C3");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        bangkuC3.setText("C3");
+        bangkuC3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                bangkuC3ActionPerformed(evt);
             }
         });
 
-        jButton13.setText("C4");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        bangkuC4.setText("C4");
+        bangkuC4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                bangkuC4ActionPerformed(evt);
             }
         });
 
-        jButton14.setText("C2");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        bangkuC2.setText("C2");
+        bangkuC2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                bangkuC2ActionPerformed(evt);
             }
         });
 
-        jButton15.setText("C1");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        bangkuC1.setText("C1");
+        bangkuC1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                bangkuC1ActionPerformed(evt);
             }
         });
 
@@ -217,30 +220,30 @@ public class FormPesan extends javax.swing.JFrame {
                 .addGap(76, 76, 76)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bangkuC1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bangkuC2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(79, 79, 79)
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bangkuC3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bangkuC4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bangkuB1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bangkuB2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(79, 79, 79)
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bangkuB3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(bangkuB4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bangkuA1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bangkuA2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(79, 79, 79)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bangkuA3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(bangkuA4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(92, Short.MAX_VALUE))
         );
@@ -249,22 +252,22 @@ public class FormPesan extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bangkuA1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bangkuA2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bangkuA3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bangkuA4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bangkuB1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bangkuB2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bangkuB3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bangkuB4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bangkuC1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bangkuC2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bangkuC3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bangkuC4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
@@ -308,7 +311,12 @@ public class FormPesan extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Reset");
+        jButton2.setText("Refresh");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Kembali");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -443,17 +451,17 @@ public class FormPesan extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void bangkuA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bangkuA3ActionPerformed
         // TODO add your handling code here:
         baris = "a";
         nomer = "3";
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_bangkuA3ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void bangkuA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bangkuA4ActionPerformed
         // TODO add your handling code here:
         baris = "a";
         nomer = "4";
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_bangkuA4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -481,6 +489,28 @@ public class FormPesan extends javax.swing.JFrame {
                         + "", "Status", JOptionPane.INFORMATION_MESSAGE, null);
                 System.out.println("Berhasil");
                 
+                FreeSyntax FS = new FreeSyntax();
+                String bangkuNya = baris + nomer;
+                FS.setBangku(no_studio.getText(), input_pesan_bioskop.getSelectedItem().toString(), bangkuNya);
+                
+                //REFRESH BANGKU LAGI
+                FS.getDataBangku(no_studio.getText(), input_pesan_bioskop.getSelectedItem().toString(), bangku);
+                
+                setBangku(bangku,0,bangkuA1);
+                setBangku(bangku,1,bangkuA2);
+                setBangku(bangku,2,bangkuA3);
+                setBangku(bangku,3,bangkuA4);
+                
+                setBangku(bangku,4,bangkuB1);
+                setBangku(bangku,5,bangkuB2);
+                setBangku(bangku,6,bangkuB3);
+                setBangku(bangku,7,bangkuB4);
+                
+                setBangku(bangku,8,bangkuC1);
+                setBangku(bangku,9,bangkuC2);
+                setBangku(bangku,10,bangkuC3);
+                setBangku(bangku,11,bangkuC4);
+                //DONE
             } else {
                 JOptionPane.showMessageDialog(null, "Gagal", "Status", JOptionPane.ERROR_MESSAGE, null);
             }
@@ -518,6 +548,14 @@ public class FormPesan extends javax.swing.JFrame {
         filmDipilih = true;
     }//GEN-LAST:event_input_pesan_filmMouseClicked
 
+    private void setBangku(int[] arrayBangku,int index, JButton tombolBangku){
+        if(arrayBangku[index] == 0){
+            tombolBangku.setEnabled(true);
+        }else{
+            tombolBangku.setEnabled(false);
+        }
+    }
+    
     private void input_pesan_filmItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_input_pesan_filmItemStateChanged
         // TODO add your handling code here:
         if(filmDipilih){
@@ -529,6 +567,28 @@ public class FormPesan extends javax.swing.JFrame {
                 CP.labelDataHarga(input_harga, input_pesan_bioskop.getSelectedItem().toString(), input_pesan_film.getSelectedItem().toString());
                 CP.labelDataTanggal(input_tangal, input_pesan_bioskop.getSelectedItem().toString(), input_pesan_film.getSelectedItem().toString());
 
+                //setting bangku
+                FreeSyntax FS = new FreeSyntax();
+                FS.getDataBangku(no_studio.getText(), input_pesan_bioskop.getSelectedItem().toString(), bangku);
+                
+                setBangku(bangku,0,bangkuA1);
+                setBangku(bangku,1,bangkuA2);
+                setBangku(bangku,2,bangkuA3);
+                setBangku(bangku,3,bangkuA4);
+                
+                setBangku(bangku,4,bangkuB1);
+                setBangku(bangku,5,bangkuB2);
+                setBangku(bangku,6,bangkuB3);
+                setBangku(bangku,7,bangkuB4);
+                
+                setBangku(bangku,8,bangkuC1);
+                setBangku(bangku,9,bangkuC2);
+                setBangku(bangku,10,bangkuC3);
+                setBangku(bangku,11,bangkuC4);
+                //endOf SetBangku
+                
+               
+                
             }catch(Exception e){
                 System.out.println(e.getMessage());
             }
@@ -540,65 +600,103 @@ public class FormPesan extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_input_pesan_filmActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void bangkuA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bangkuA1ActionPerformed
         // TODO add your handling code here:
         baris = "a";
         nomer = "1";
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_bangkuA1ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void bangkuA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bangkuA2ActionPerformed
         // TODO add your handling code here:
         baris = "a";
         nomer = "2";
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_bangkuA2ActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void bangkuB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bangkuB1ActionPerformed
         // TODO add your handling code here:
         baris = "b";
         nomer = "1";
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_bangkuB1ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void bangkuB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bangkuB2ActionPerformed
         // TODO add your handling code here:
         baris = "b";
         nomer = "2";
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_bangkuB2ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void bangkuB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bangkuB3ActionPerformed
         // TODO add your handling code here:
         baris = "b";
         nomer = "3";
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_bangkuB3ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void bangkuB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bangkuB4ActionPerformed
         // TODO add your handling code here:
         baris = "b";
         nomer = "4";
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_bangkuB4ActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void bangkuC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bangkuC1ActionPerformed
         // TODO add your handling code here:
         baris = "c";
         nomer = "1";
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_bangkuC1ActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void bangkuC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bangkuC2ActionPerformed
         // TODO add your handling code here:
         baris = "c";
         nomer = "2";
-    }//GEN-LAST:event_jButton14ActionPerformed
+    }//GEN-LAST:event_bangkuC2ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void bangkuC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bangkuC3ActionPerformed
         // TODO add your handling code here:
         baris = "c";
         nomer = "3";
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_bangkuC3ActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void bangkuC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bangkuC4ActionPerformed
         // TODO add your handling code here:
         baris = "c";
         nomer = "4";
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_bangkuC4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         try{
+                CRUD_Pesan CP = new CRUD_Pesan();
+                CP.labelDataIdStudio(no_studio, input_pesan_bioskop.getSelectedItem().toString(), input_pesan_film.getSelectedItem().toString());
+                CP.labelDataWaktuMulai(inputWaktuMulai, input_pesan_bioskop.getSelectedItem().toString(), input_pesan_film.getSelectedItem().toString());
+                CP.labelDataWaktuSelesai(inputWaktuSelesai, input_pesan_bioskop.getSelectedItem().toString(), input_pesan_film.getSelectedItem().toString());
+                CP.labelDataHarga(input_harga, input_pesan_bioskop.getSelectedItem().toString(), input_pesan_film.getSelectedItem().toString());
+                CP.labelDataTanggal(input_tangal, input_pesan_bioskop.getSelectedItem().toString(), input_pesan_film.getSelectedItem().toString());
+
+                //setting bangku
+                FreeSyntax FS = new FreeSyntax();
+                FS.getDataBangku(no_studio.getText(), input_pesan_bioskop.getSelectedItem().toString(), bangku);
+                
+                setBangku(bangku,0,bangkuA1);
+                setBangku(bangku,1,bangkuA2);
+                setBangku(bangku,2,bangkuA3);
+                setBangku(bangku,3,bangkuA4);
+                
+                setBangku(bangku,4,bangkuB1);
+                setBangku(bangku,5,bangkuB2);
+                setBangku(bangku,6,bangkuB3);
+                setBangku(bangku,7,bangkuB4);
+                
+                setBangku(bangku,8,bangkuC1);
+                setBangku(bangku,9,bangkuC2);
+                setBangku(bangku,10,bangkuC3);
+                setBangku(bangku,11,bangkuC4);
+                //endOf SetBangku
+                
+                bioskopDipilih = true;
+                filmDipilih = true;
+               
+                
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -636,6 +734,18 @@ public class FormPesan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bangkuA1;
+    private javax.swing.JButton bangkuA2;
+    private javax.swing.JButton bangkuA3;
+    private javax.swing.JButton bangkuA4;
+    private javax.swing.JButton bangkuB1;
+    private javax.swing.JButton bangkuB2;
+    private javax.swing.JButton bangkuB3;
+    private javax.swing.JButton bangkuB4;
+    private javax.swing.JButton bangkuC1;
+    private javax.swing.JButton bangkuC2;
+    private javax.swing.JButton bangkuC3;
+    private javax.swing.JButton bangkuC4;
     private javax.swing.JLabel inputWaktuMulai;
     private javax.swing.JLabel inputWaktuSelesai;
     private javax.swing.JLabel input_harga;
@@ -644,20 +754,8 @@ public class FormPesan extends javax.swing.JFrame {
     private javax.swing.JComboBox input_pesan_film;
     private javax.swing.JLabel input_tangal;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
