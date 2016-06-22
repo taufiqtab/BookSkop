@@ -115,7 +115,7 @@ public class StaffPage_Studio extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel1.setText("Staff Page : Bioskop");
+        jLabel1.setText("Staff Page : Studio");
 
         jLabel2.setText("Nomor Studio :");
 

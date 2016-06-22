@@ -202,6 +202,11 @@ public class StaffPage_Film extends javax.swing.JFrame {
         jLabel10.setText("Nama Bioskop :");
 
         input_nama_bioskop.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        input_nama_bioskop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_nama_bioskopActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("No Studio :");
 
@@ -476,6 +481,10 @@ public class StaffPage_Film extends javax.swing.JFrame {
                
         
     }//GEN-LAST:event_tabelFilmMouseClicked
+
+    private void input_nama_bioskopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_nama_bioskopActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_nama_bioskopActionPerformed
 
     /**
      * @param args the command line arguments

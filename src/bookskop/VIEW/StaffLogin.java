@@ -6,18 +6,44 @@
 package bookskop.VIEW;
 
 import bookskop.CRUD.FreeSyntax;
+import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author TaufiqTab
  */
 public class StaffLogin extends javax.swing.JFrame {
-
+    private String username, password;
+    private Connection con;
+    private Statement stat;
+    private ResultSet res;
+    public String UserLogin;
     /**
      * Creates new form StaffLogin
      */
     public StaffLogin() {
         initComponents();
+    }
+    
+    private void clearForm() {
+        userInput.setText("");
+        passInput.setText("");
+    }
+    
+    private void koneksi(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/dbbookskop","root","");
+            stat = con.createStatement();
+        }catch (ClassNotFoundException | SQLException e){
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 
     /**
@@ -117,11 +143,52 @@ public class StaffLogin extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        FreeSyntax FS = new FreeSyntax();
+        /*FreeSyntax FS = new FreeSyntax();
         if(FS.getLogin(userInput.getText(), passInput.getText())){
             new StaffPage().show();
             this.dispose();
+        }*/
+        username = userInput.getText();
+        password = passInput.getText();
+        
+        if(username.equals("")){
+            userInput.setBackground(Color.red);
+            JOptionPane.showMessageDialog(null, "Username tidak boleh kosong", "Information", 1);
+            userInput.setBackground(Color.white);
+        }else if(password.equals("")){
+            passInput.setBackground(Color.red);
+            JOptionPane.showMessageDialog(null, "Password tidak boleh kosong", "Information", 1);
+            passInput.setBackground(Color.white);
+        }else{
+            if(username.length()>50){
+                userInput.setBackground(Color.red);
+                JOptionPane.showMessageDialog(rootPane, "Jumlah maksimal karakter hanya 50!", "Alert",2);
+                userInput.setBackground(Color.white);
+            }else if(password.length()>50){
+                passInput.setBackground(Color.red);
+                JOptionPane.showMessageDialog(rootPane, "Jumlah maksimal karakter hanya 50!", "Alert",2);
+                passInput.setBackground(Color.white);
+            }else{
+                try{
+                    koneksi();
+                    String sql = "Select * from staff where username='"+ username +"' and password='" + password + "'";
+                    res = stat.executeQuery(sql);
+                    if (res.next()){
+                        UserLogin = res.getString("nama");
+                        JOptionPane.showMessageDialog(null, "Welcome "+UserLogin, "Welcome", 1);
+                        StaffPage sp = new StaffPage();
+                        sp.show();
+                        this.dispose();
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Username / Password Salah", "Alert", 2);
+                        clearForm();
+                    }
+                }catch (Exception e){
+                        JOptionPane.showMessageDialog(null, "Ada Kesalahan"+e);
+                }
+            }
         }
+        
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**

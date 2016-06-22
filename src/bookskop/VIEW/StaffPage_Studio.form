@@ -136,7 +136,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Staff Page : Bioskop"/>
+            <Property name="text" type="java.lang.String" value="Staff Page : Studio"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
