@@ -175,9 +175,26 @@ public class StaffLogin extends javax.swing.JFrame {
                     res = stat.executeQuery(sql);
                     if (res.next()){
                         UserLogin = res.getString("nama");
-                        JOptionPane.showMessageDialog(null, "Welcome "+UserLogin, "Welcome", 1);
+                       
                         StaffPage sp = new StaffPage();
                         sp.theRoles =  Integer.parseInt(res.getString("role"));
+                        
+                        int rolenya = Integer.parseInt(res.getString("role"));
+                        if(rolenya == 1){
+                             JOptionPane.showMessageDialog(null, "Welcome "+UserLogin + " Anda adalah Staff Studio", "Welcome", 1);
+                        }
+                        if(rolenya == 2){
+                             JOptionPane.showMessageDialog(null, "Welcome "+UserLogin + " Anda adalah Staff Bioskop", "Welcome", 1);
+                        }
+                        if(rolenya == 3){
+                             JOptionPane.showMessageDialog(null, "Welcome "+UserLogin + " Anda adalah Staff Pelanggan", "Welcome", 1);
+                        }
+                        if(rolenya == 4){
+                             JOptionPane.showMessageDialog(null, "Welcome "+UserLogin + " Anda adalah Staff Film", "Welcome", 1);
+                        }
+                        if(rolenya == 5){
+                             JOptionPane.showMessageDialog(null, "Welcome "+UserLogin + " Anda adalah Staff Super", "Welcome", 1);
+                        }
                         //StaffPage.id_role.setText(res.getString("role"));
                         sp.show();
                         this.dispose();
