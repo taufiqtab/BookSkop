@@ -23,12 +23,13 @@ public class StaffPage extends javax.swing.JFrame {
     private Statement stat;
     private ResultSet res;
 
+    public int theRoles;
     /**
      * Creates new form StaffPage
      */
     public StaffPage() {
         initComponents();
-        checkRole();
+        //checkRole();
     }
     
     private void koneksi(){
@@ -40,6 +41,7 @@ public class StaffPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    /*
    private void checkRole(){ 
         try{
             koneksi();
@@ -48,12 +50,12 @@ public class StaffPage extends javax.swing.JFrame {
             
             while (res.next())
             {
-                    id_role.setText(res.getString(6));
+                    //id_role.setText(res.getString(6));
             }
         }catch (SQLException e){
         }
    }
-    
+    */
     /*private void checkUser(){ //pengecekan user role standar apabila admin maka semua menu terbuka
         role = lbl_User_Login.getText().toString();
         
@@ -83,7 +85,6 @@ public class StaffPage extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        id_role = new javax.swing.JLabel();
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setText("Lihat Film");
@@ -135,8 +136,6 @@ public class StaffPage extends javax.swing.JFrame {
             }
         });
 
-        id_role.setText("0");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -159,10 +158,6 @@ public class StaffPage extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(58, 58, 58))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(241, 241, 241)
-                .addComponent(id_role)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,9 +171,7 @@ public class StaffPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(id_role)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -190,9 +183,13 @@ public class StaffPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        new StaffPage_Film().show();
-        this.dispose();
+        if(theRoles == 4 || theRoles > 4){
+            // TODO add your handling code here:
+            new StaffPage_Film().show();
+            //this.dispose();
+        }else{
+          JOptionPane.showMessageDialog(null, "Anda tidak memiliki Hak Akses !", "Alert", 2);  
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -202,26 +199,42 @@ public class StaffPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        new StaffPage_Studio().show();
-        this.dispose();
+        if(theRoles == 1 || theRoles > 4){
+            // TODO add your handling code here:
+            new StaffPage_Studio().show();
+            //this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Anda tidak memiliki Hak Akses !", "Alert", 2);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        new StaffPage_Bioskop().show();
-        this.dispose();
+        if(theRoles == 2 || theRoles > 4){
+            // TODO add your handling code here:
+            new StaffPage_Bioskop().show();
+            //this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Anda tidak memiliki Hak Akses !", "Alert", 2);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        new StaffPage_Pelanggan().show();
-        this.dispose();
+        if(theRoles == 3 || theRoles > 4){
+            // TODO add your handling code here:
+            new StaffPage_Pelanggan().show();
+           // this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Anda tidak memiliki Hak Akses !", "Alert", 2);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        new StaffPage_User().show();
-        this.dispose();
+        if(theRoles == 5 || theRoles > 4){
+            new StaffPage_User().show();
+            //this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Anda tidak memiliki Hak Akses !", "Alert", 2);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
@@ -260,7 +273,6 @@ public class StaffPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel id_role;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

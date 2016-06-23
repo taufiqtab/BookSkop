@@ -177,6 +177,8 @@ public class StaffLogin extends javax.swing.JFrame {
                         UserLogin = res.getString("nama");
                         JOptionPane.showMessageDialog(null, "Welcome "+UserLogin, "Welcome", 1);
                         StaffPage sp = new StaffPage();
+                        sp.theRoles =  Integer.parseInt(res.getString("role"));
+                        //StaffPage.id_role.setText(res.getString("role"));
                         sp.show();
                         this.dispose();
                     }else{

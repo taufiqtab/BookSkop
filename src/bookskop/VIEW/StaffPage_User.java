@@ -313,11 +313,12 @@ public class StaffPage_User extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        new StaffPage().show();
+        //new StaffPage().show();
         this.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
