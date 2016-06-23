@@ -3,15 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Sun%20Diego/Documents/BookSkop/src/bookskop/VIEW/StaffPage_Film.java</file>
-            <file>file:/C:/Users/Sun%20Diego/Documents/BookSkop/src/bookskop/VIEW/StaffPage_Studio.java</file>
-            <file>file:/C:/Users/Sun%20Diego/Documents/BookSkop/src/bookskop/VIEW/FormPesan.java</file>
-            <file>file:/C:/Users/Sun%20Diego/Documents/BookSkop/src/bookskop/VIEW/StaffPage_Bioskop.java</file>
-            <file>file:/C:/Users/Sun%20Diego/Documents/BookSkop/src/bookskop/CRUD/CRUD_Pesan.java</file>
-            <file>file:/C:/Users/Sun%20Diego/Documents/BookSkop/src/bookskop/CRUD/Reset_Bangku.java</file>
-            <file>file:/C:/Users/Sun%20Diego/Documents/BookSkop/src/bookskop/VIEW/StaffLogin.java</file>
-            <file>file:/C:/Users/Sun%20Diego/Documents/BookSkop/src/bookskop/VIEW/ResetBangku.java</file>
-            <file>file:/C:/Users/Sun%20Diego/Documents/BookSkop/src/bookskop/CRUD/CRUD_Film.java</file>
+            <file>file:/D:/BookSkopProject/src/bookskop/VIEW/StaffPage.java</file>
+            <file>file:/D:/BookSkopProject/src/bookskop/VIEW/MainApps.java</file>
+            <file>file:/D:/BookSkopProject/src/bookskop/VIEW/ResetBangku.java</file>
+            <file>file:/D:/BookSkopProject/src/bookskop/VIEW/StaffPage_Studio.java</file>
+            <file>file:/D:/BookSkopProject/src/bookskop/VIEW/StaffLogin.java</file>
         </group>
     </open-files>
 </project-private>
