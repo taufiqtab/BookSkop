@@ -414,6 +414,7 @@
       <Events>
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="input_pesan_bioskopItemStateChanged"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="input_pesan_bioskopMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="input_pesan_bioskopActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="input_pesan_film">

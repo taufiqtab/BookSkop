@@ -287,6 +287,11 @@ public class FormPesan extends javax.swing.JFrame {
                 input_pesan_bioskopMouseClicked(evt);
             }
         });
+        input_pesan_bioskop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_pesan_bioskopActionPerformed(evt);
+            }
+        });
 
         input_pesan_film.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -697,6 +702,10 @@ public class FormPesan extends javax.swing.JFrame {
                 System.out.println(e.getMessage());
             }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void input_pesan_bioskopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_pesan_bioskopActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_pesan_bioskopActionPerformed
 
     /**
      * @param args the command line arguments
