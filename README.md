@@ -1,10 +1,7 @@
 APLIKASI BOOKSKOP
-Nama Kelompok : BookSkop
-- Muhammad Yusuf Matahari – 0110213013	
-- Taufiq Abdullah – 0110213015	
-- Muhammad Fakhri – 0110213010	
-====================================================================
-1.	Applikasi Booking Bioskop Berbasis Desktop dengan Java
+Fachri - Abdullah - Matahari
+
+Applikasi Booking Bioskop Berbasis Desktop dengan Java
 •	Aplikasi ini untuk mempermudah pengguna untuk memesan tiket tanpa harus antri di bioskop / kehabisan tiket, aplikasi ini memiliki beberapa fitur yaitu :
 -	Pesan tiket *as user
 -	Role Staff
